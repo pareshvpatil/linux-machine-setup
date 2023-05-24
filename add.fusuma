@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo gpasswd -a $USER input
+newgrp input
+
+sudo apt-get install libinput-tools -y
+sudo apt-get install ruby -y
+sudo gem install fusuma
+
+sudo apt-get install xdotool -y
+

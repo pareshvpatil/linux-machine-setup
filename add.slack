@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+latest_version=$(snap find slack --narrow --section=social | grep 'slack\*\*' | awk '{print $2}')
+
+cd ~/work/software
+mkdir -p slack
+cd slack
+rm -rf *
+
+sudo apt install libappindicator3-1 -y
+
+curl "https://downloads.slack-edge.com/releases/linux/$latest_version/prod/x64/slack-desktop-$latest_version-amd64.deb" -o "slack-desktop-$latest_version-amd64.deb"
+
+sudo dpkg -i "slack-desktop-$latest_version-amd64.deb"
+
+slack login

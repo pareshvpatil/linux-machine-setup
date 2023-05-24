@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+sudo apt-get install apt-transport-https -y
+sudo apt install curl -y
+sudo apt install vim -y
+sudo apt install net-tools -y
+sudo apt install git -y
+
+
+# for drop-down terminal
+sudo apt install yakuake -y
+
+
+# google chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o google-chrome.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+rm -rf google-chrome*.deb
+
+# mysql-client
+sudo apt install mysql-client-8.0 -y
+
+# add copyq
+sudo apt install copyq

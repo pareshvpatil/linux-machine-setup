@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "help" ]]; then
+    echo "expected arguments are space separated: username, access keyid, access secret key, profile name"
+    exit 1
+fi
+
+cd ~/work/software
+mkdir -p aws
+cd aws
+rm -rf *
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+aws --version
+
+echo "aws cli ready to be configured..."
+
+echo "User Name,Access key ID,Secret access key\n$1,$2,$3" > aws-creds.csv
+
+aws configure import --profile=$4 file://aws-creds.csv
+
+rm -rf aws-creds.csv

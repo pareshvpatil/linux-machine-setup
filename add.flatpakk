@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# flatpak installtion & setup
+
+sudo apt install flatpak -y
+
+# flatpak Discover integration
+sudo apt install plasma-discover-backend-flatpak -y
+
+# flathub repository
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# flatpak custom installation directory setup
+sudo mkdir -p /etc/flatpak/installations.d
+
+mkdir -p /home/work/software/flatpak
+
+sudo sh -c "> /etc/flatpak/installations.d/extra.conf"
+
+echo "[Installation \"extra\"]" | sudo tee -a /etc/flatpak/installations.d/extra.conf
+echo "Path=/home/work/software/flatpak/" | sudo tee -a /etc/flatpak/installations.d/extra.conf
+echo "Priority=1" | sudo tee -a /etc/flatpak/installations.d/extra.conf
+echo "DisplayName=Extra Installation" | sudo tee -a /etc/flatpak/installations.d/extra.conf
+echo "StorageType=harddisk" | sudo tee -a /etc/flatpak/installations.d/extra.conf
+
+flatpak --installation=extra remote-add flathub https://flathub.org/repo/flathub.flatpakrepo

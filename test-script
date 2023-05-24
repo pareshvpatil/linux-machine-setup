@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-sudo sh -c "> /home/paresh/work/files/tmp-file"
+sudo sh -c "> ~/work/files/tmp-file"
 
-echo "[Installation \"extra\"]" | sudo tee -a /home/paresh/work/files/tmp-file
-echo "Path=/home/work/software/flatpak/" | sudo tee -a /home/paresh/work/files/tmp-file
-echo "Priority=1" | sudo tee -a /home/paresh/work/files/tmp-file
-echo "DisplayName=Extra Installation" | sudo tee -a /home/paresh/work/files/tmp-file
-echo "StorageType=harddisk" | sudo tee -a /home/paresh/work/files/tmp-file
+echo "[Installation \"extra\"]" | sudo tee -a ~/work/files/tmp-file
+echo "Path=/home/work/software/flatpak/" | sudo tee -a ~/work/files/tmp-file
+echo "Priority=1" | sudo tee -a ~/work/files/tmp-file
+echo "DisplayName=Extra Installation" | sudo tee -a ~/work/files/tmp-file
+echo "StorageType=harddisk" | sudo tee -a ~/work/files/tmp-file
